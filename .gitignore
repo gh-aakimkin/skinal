@@ -1,5 +1,6 @@
-# Object file
-*.o
+/node_modules/
+/.git/
+/#source/
+/**/Thumbs.db
+/**/*.DS_Store
 
-# Ada Library Information
-*.ali
