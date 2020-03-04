@@ -1,5 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-	// Custom JS
+	$('.menu-button').click(function() {
+		$('.menu').stop().slideToggle();
+	});
 
+	$('.menu').click(function(e){
+		e.stopPropagation();
+	});
+	
 });

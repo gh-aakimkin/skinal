@@ -1,4 +1,12 @@
+.header
+	position: relative
 .navbar
+		position: fixed
+		left: 0
+		top: 0
+		width: 100%
+		z-index: 9
+		background-color: #fff
 
 		// .navbar__wrap
 		&__wrap
@@ -43,6 +51,7 @@
 	max-width: 1170px
 	margin: 0 auto 
 	padding: 0 $gutter
+	position: relative
 
 	
 
@@ -110,13 +119,121 @@
 	&:hover
 			background-color: #507fe1		
 
+
+.menu
+	position: absolute
+	width: 100%
+	height: 80px
+	z-index: 8
+	display: none
+	left: 0
+	top: 80px
+	
+	&__wrap
+		width: 100%
+		position: absolute
+		background-color: rgba(#507fe1, .9)
+		
+	&__main
+		max-width: 1170px
+		margin: 0 auto
+		
+		
+
+	&__main__list
+		display: flex
+		align-items: center //выравнивание по вертикали всех блоков
+		justify-content: center
+		list-style: none
+		margin: 0
+		padding: 0
+		text-align: center
+		
+		
+		
+	&__main__li
+		display: inline-block
+		margin: 0
+		padding: 0
+		position: relative
+		width: 81.9%
+		z-index: 1
+		transition: background .25s ease
+	
+		
+		&::after
+			content: ''
+			width: 100%
+			height: 50%
+			border: none
+			border-right: rgba(#fff, .2) 1px solid
+			margin: auto 0
+			top: 50%
+			right: 0
+			bottom: 50%
+			left: 0
+			display: inline-block
+			position: absolute
+			z-index: -1
+		&::before
+			content: ''
+			width: 100%
+			height: 50%
+			border: none
+			border-left: rgba(#fff, .2) 1px solid
+			margin: auto 0
+			top: 50%
+			right: 0
+			bottom: 50%
+			left: 0
+			display: inline-block
+			position: absolute
+			z-index: -1
+		&:first-child
+			margin-left: $gutter
+
+		&:last-child
+			margin-right: $gutter	
+		&:hover
+			background: darken(#507fe1, 3)
+	&__main__item
+		color: #fff
+		text-decoration: none
+		font-size: 14px
+		letter-spacing: 2px
+		font-weight: 400
+		display: block
+		cursor: pointer
+		line-height: 40px
+		padding: 0 20px
+		white-space: nowrap
+
+		&:hover
+			color: #fff
+			text-decoration: none
+
+
+
 @media (max-width: 1040px)
 	.navbar__landline
 		display: none
+	.menu
+		&__main__list
+			flex-wrap: wrap
+			//justify-content: space-around
+			//width: 50%
+		&__main__li
+			width: auto
+			&:first-child
+				margin-left: $gutter
+			&:last-child
+				margin-right: $gutter
+
 
 @media (max-width: 800px)
 	.navbar__mobile
 		display: none
+
 
 @media (max-width: 630px)
 	.navbar
@@ -124,3 +241,35 @@
 			flex-direction: column
 			min-height: 220px
 			padding-bottom: $gutter
+	.menu
+		top: 220px
+		&__main__list
+			flex-direction: column
+			width: 100%
+			
+		&__main__li
+			padding: $gutter 0
+			width: 100%
+						
+			&::after
+				border: none
+				border-bottom: rgba(#fff, .2) 1px solid
+				width: 50%
+				height: 100%
+				margin: auto
+			&::before
+				border: none
+				border-top: rgba(#fff, .2) 1px solid
+				width: 50%
+				height: 100%
+				margin: auto
+			&:first-child
+				margin-left: 0
+			&:last-child
+				margin-right: 0
+
+
+		&__main__item
+			font-size: 16px
+			display: block
+
